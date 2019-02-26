@@ -1,0 +1,30 @@
+diff cas.atomic.s cas.no_atomic.s > diff.txt
+
+26,28c26,34
+< 	lock addl	$1, count(%rip)
+< 	lock subl	$1, count(%rip)
+< 	lock addl	$1, count(%rip)
+---
+> 	movl	count(%rip), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, count(%rip)
+> 	movl	count(%rip), %eax
+> 	subl	$1, %eax
+> 	movl	%eax, count(%rip)
+> 	movl	count(%rip), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, count(%rip)
+26,28c26,34
+< 	lock addl	$1, count(%rip)
+< 	lock subl	$1, count(%rip)
+< 	lock addl	$1, count(%rip)
+---
+> 	movl	count(%rip), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, count(%rip)
+> 	movl	count(%rip), %eax
+> 	subl	$1, %eax
+> 	movl	%eax, count(%rip)
+> 	movl	count(%rip), %eax
+> 	addl	$1, %eax
+> 	movl	%eax, count(%rip)
